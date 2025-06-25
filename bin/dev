@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+# Start Jekyll development server
+bundle exec jekyll serve "$@"
