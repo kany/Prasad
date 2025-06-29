@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" href="https://kany.github.io/assets/images/favicon.ico">
+    <title>Auto deploy your static site in github | John Doe</title>
+    
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
+          integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ"
+          crossorigin="anonymous">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Rubik:400,400i,500,500i,700,700i"
+          rel="stylesheet">
+    <link href="https://kany.github.io/assets/css/theme.css" rel="stylesheet">
+    <link href="https://kany.github.io/assets/css/user.css" rel="stylesheet">
+    <link href="https://kany.github.io/assets/css/custom.css" rel="stylesheet">
+    <link rel="stylesheet"
+          href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+          integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+          crossorigin="anonymous">
+
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Auto deploy your static site in github | John Doe</title>
+<meta name="generator" content="Jekyll v4.3.4" />
+<meta property="og:title" content="Auto deploy your static site in github" />
+<meta name="author" content="john" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." />
+<meta property="og:description" content="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." />
+<meta property="og:site_name" content="John Doe" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2017-12-09T00:15:00-06:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Auto deploy your static site in github" />
+<meta name="twitter:site" content="@john" />
+<meta name="twitter:creator" content="@john" />
+<meta property="article:publisher" content="john.com" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"john"},"dateModified":"2017-12-09T00:15:00-06:00","datePublished":"2017-12-09T00:15:00-06:00","description":"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.","headline":"Auto deploy your static site in github","mainEntityOfPage":{"@type":"WebPage","@id":"/https://kany.github.io/blog/2017/12/09/auto-deploy-static-wordpress-site-in-github.html"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/https://kany.github.io/assets/images/logo.png"},"name":"john"},"url":"/https://kany.github.io/blog/2017/12/09/auto-deploy-static-wordpress-site-in-github.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    
+
+    <script>
+      (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function () {
+          (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+          m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+      })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+      ga('create', 'UA-103662447-9', 'auto');
+      ga('send', 'pageview');
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"></script>
+</head>
+
+
+<body class="layout-post">
+
+<!-- Begin Menu Navigation
+================================================== -->
+<header class="navbar navbar-toggleable-md navbar-light bg-white fixed-top mediumnavigation">
+    <button class="navbar-toggler navbar-toggler-right" type="button"
+            data-toggle="collapse" data-target="#navbarsWow"
+            aria-controls="navbarsWow" aria-expanded="false"
+            aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="container">
+
+        <!-- Begin Logo -->
+        <a class="navbar-brand" href="https://kany.github.io/">
+            
+            John Doe
+            
+        </a>
+        <!-- End Logo -->
+
+        <!-- Begin Menu -->
+        <div class="collapse navbar-collapse" id="navbarsWow">
+
+            <!-- Begin Menu -->
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="https://kany.github.io/theme-setup/">Theme
+                        Setup</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link"
+                       href="https://kany.github.io/category/blog/">Blog</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link"
+                       href="https://kany.github.io/about">About</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="https://kany.github.io/contact">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link highlight" href="//getdevis.com">Developer
+                        Newsletter</a>
+                </li>
+            </ul>
+            <!-- End Menu -->
+
+        </div>
+    </div>
+</header>
+
+
+<!-- End Menu Navigation
+================================================== -->
+
+<div class="site-content">
+
+    <div class="container">
+
+        <!-- Site Title
+        ================================================== -->
+
+        <div class="mainheading" style="display:none;">
+            <h1 class="sitetitle">John Doe</h1>
+            <p class="lead">
+                Just another website
+            </p>
+        </div>
+
+        <!-- Content
+        ================================================== -->
+        <div class="main-content">
+            <!-- Begin Article
+================================================== -->
+
+<div class="row">
+
+    <!-- Post -->
+    
+
+    <div class="col-sm-8">
+        <div class="mainheading">
+
+            <!-- Post Categories -->
+            <div class="after-post-tags">
+                <ul class="tags">
+                    
+                    
+                    <li>
+                        <a href="https://kany.github.io/category/blog/">blog</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <!-- End Categories -->
+
+            <!-- Post Title -->
+            <h1 class="posttitle">Auto deploy your static site in github</h1>
+        </div>
+
+        <!-- Post Featured cover -->
+        <img class="featured-cover img-fluid"
+                                src="https://kany.github.io/assets/images/3.jpg"
+                                alt="Auto deploy your static site in github" width="100%">
+        <!-- End Featured cover -->
+        <br><br>
+
+        <!-- Post Content -->
+        <div class="article-post">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+            <div class="clearfix"></div>
+        </div>
+
+        <!-- Post Date -->
+        <p>
+            <small>
+                <span class="post-date"><time class="post-date"
+                                              datetime="
+                                              2017-12-09">09 Dec 2017</time></span>
+                
+            </small>
+        </p>
+        <br><br>
+        <div class="sharethis-inline-share-buttons"></div>
+        <br>
+        <!-- Prev/Next -->
+        <div class="row PageNavigation mt-4 prevnextlinks">
+            
+            <div class="col-md-6 rightborder pl-0">
+                <a class="thepostlink"
+                   href="/https://kany.github.io/blog/2017/04/15/list-your-github-repo-in-your-website-blog-using-javascript-jquery.html">&laquo;
+                    List github repo in your blog</a>
+            </div>
+            
+            
+            <div class="col-md-6 text-right pr-0">
+                <a class="thepostlink"
+                   href="/https://kany.github.io/blog/2018/10/02/automating-the-newspaper-and-magazine-download.html">Automating the Newspaper download
+                    &raquo;</a>
+            </div>
+            
+        </div>
+        <!-- End Prev/Next -->
+
+        <!-- Author Box -->
+        
+        <div class="row post-top-meta">
+            <div class="col-md-2">
+                <img class="author-thumb" src="/assets/images/john.jpg"
+                     alt="John Doe">
+            </div>
+            <div class="col-md-10">
+                <a target="_blank" class="link-dark" href="http://example.com">John Doe</a><a target="_blank"
+                                                 href=""
+                                                 class="btn follow">Follow</a><br>
+                <span class="author-description">Hi, I am John Doe.</span>
+            </div>
+        </div>
+        
+
+        
+  
+  
+  
+  
+    <div class="related-posts">
+      <h3>Related Post in “Blog”</h3>
+      <br>
+      <ul>
+        
+          
+          <a  class="thepostlink" href="https://kany.github.io/blog/2018/10/02/automating-the-newspaper-and-magazine-download.html"><p style="color:black">Automating the Newspaper download  | <time datetime="2018-10-02T13:15:00-05:00"> October 2, 2018</time> </p></a>
+          <hr/>
+        
+      
+          
+      
+          
+          <a  class="thepostlink" href="https://kany.github.io/blog/2017/04/15/list-your-github-repo-in-your-website-blog-using-javascript-jquery.html"><p style="color:black">List github repo in your blog  | <time datetime="2017-04-15T01:15:00-05:00"> April 15, 2017</time> </p></a>
+          <hr/>
+        
+      
+          
+          <a  class="thepostlink" href="https://kany.github.io/blog/2017/03/15/ubuntu-in-10-years-old-pc.html"><p style="color:black">Ubuntu in old PC  | <time datetime="2017-03-15T01:15:00-05:00"> March 15, 2017</time> </p></a>
+          <hr/>
+        
+      
+    </ul>
+  </div>
+
+
+
+
+        <!-- Begin Comments
+        ================================================== -->
+        <section>
+
+            <div id="comments">
+
+                <section class="disqus">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+      var disqus_shortname = '';
+      var disqus_developer = 0;
+      (function () {
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = window.location.protocol + '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a
+            href="http://disqus.com/?ref_noscript">comments powered by
+        Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span
+            class="logo-disqus">Disqus</span></a>
+</section>
+
+
+            </div>
+
+        </section>
+        <!--End Comments
+        ================================================== -->
+
+    </div>
+    <!-- End Post -->
+
+    <!-- Sidebar -->
+
+    <div class="col-sm-4">
+
+        <div class="sidebar">
+    <div class="sidebar-section">
+        <h5><span>Search</span></h5>
+        <!-- HTML Elements for Search -->
+<div id="search-container">
+    <input type="text" style="width: 100%;
+  padding: 8px;
+  border: 1px solid black;" id="search-input"
+           placeholder="Search posts here...">
+    <ul id="results-container"></ul>
+</div>
+<!-- Script pointing to search-script.js -->
+<script src="/assets/js/search.js" type="text/javascript"></script>
+<!-- Configuration -->
+<script>
+  SimpleJekyllSearch({
+    searchInput: document.getElementById('search-input'),
+    resultsContainer: document.getElementById('results-container'),
+    json: '/search.json'
+  })
+</script>
+
+    </div>
+
+    <div class="sidebar-section">
+        <h5><span>Newsletter</span></h5>
+        <div id="embed">
+    <center>Get our weekly tech info and updates.</center>
+    <br>
+    <form action="#" method="post" id="form" name="form" target="_blank">
+        <div class="form-group">
+            <label for="member_email"><b>Email address</b></label>
+            <input class="form-field" placeholder="Your email address..."
+                   type="email" name="member[email]" id="member_email">
+        </div>
+        <div class="form-actions">
+            <input type="submit" value="Subscribe" name="member[subscribe]"
+                   class="btn btn-primary btn-lg btn-block" id="member_submit">
+        </div>
+    </form>
+</div>
+
+    </div>
+
+    <div class="sidebar-section">
+        <h5><span>Useful Links</span></h5>
+        <ul class="list-none">
+            <li><a href="/theme-setup/">Setup Prasad theme</a></li>
+            <li><a target="blank" href="https://github.com/cdrrazan/prasad">Download
+                theme</a></li>
+            <li><a target="_blank" href="https://jekyllrb.com/tutorials/home/">Jekyll
+                Tutorials</a></li>
+            <li><a target="blank" href="https://jekyllrb.com/docs/">Jekyll
+                Docs</a></li>
+        </ul>
+    </div>
+</div>
+
+
+    </div>
+
+</div>
+
+<!-- End Article
+================================================== -->
+
+        </div>
+
+    </div><!-- /.container -->
+
+    <!-- Before Footer
+    ================================================== -->
+    <div class="beforefooter">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <h3>Newsletter for Developers</h3>
+                    <center><p>A handpicked selection of recommended
+                        tech-related articles, updates about the latest apps &
+                        technologies, inspiration from global and unique sources
+                        delivered directly to your inbox.</p></center>
+                    <a class="btn btn-primary btn-lg" href="" target="_blank">Sign
+                        Up</a>
+                </div>
+                <div class="col-md-4 text-right footersocial">
+                    <h5>Connect with me</h5>
+                    <a href="#" target="_blank"><i
+                            class="fab fa-facebook"></i></a>
+                    <a href="#" target="_blank"><i
+                            class="fab fa-twitter"></i></a>
+                    <a href="#" target="_blank"><i
+                            class="fab fa-linkedin"></i></a>
+                    <a href="#" target="_blank"><i
+                            class="fab fa-github"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Begin Footer
+    ================================================== -->
+    <footer class="footer">
+
+        <div class="container">
+
+            <div class="row">
+                <div class="col-sm-3">
+                    <div class="footer-widget">
+                        <h5 class="title">$ Prasad</h5>
+                        <p>Prasad is a Jekyll theme designed for complete
+                            portfolio and blog for developers.</p>
+                    </div>
+                </div>
+
+                <div class="col-sm-3">
+                    <div class="footer-widget">
+                        <h5 class="title">Resources</h5>
+                        <ul>
+                            <li>
+                                <a href="https://kany.github.io/sitemap.xml">SiteMap</a>
+                            </li>
+                            <li><a href="https://kany.github.io/feed.xml">Live
+                                Feed</a></li>
+                            <li><a href="#">Live Chat</a></li>
+                            <li><a href="#">Privacy</a></li>
+                            <li><a href="#">TOC</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-sm-3">
+                    <div class="footer-widget">
+                        <h5 class="title">Catgory</h5>
+                        <ul>
+                            <li><a href="/category/blog/">Blogs</a></li>
+                            <li><a href="#">Code</a></li>
+                            <li><a href="#">Tech</a></li>
+                            <li><a href="#">Linux</a></li>
+                            <li><a href="#">Personal</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-sm-3">
+                    <div class="footer-widget textwidget">
+                        <h5 class="title">About Me</h5>
+                        <p>My name is John Doe, and I’m currently looking for a
+                            job in web development. I have 10 years of
+                            experience working with web development.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="copyright">
+                <p class="pull-left">
+                    Made with Love in <a href="https://jekyllrb.com"
+                                         target="_blank"><img
+                        src="/assets/images/jekyll.png" width="32px"
+                        height="32px"/></a>
+                    Copyright © John Doe - 2025
+                </p>
+                <p class="pull-right">
+                    <!-- Please, leave credit to author unless you own a commercial license: https://www.wowthemes.net/freebies-license/ -->
+                    <a target="_blank"
+                       href="https://www.wowthemes.net/free-jekyll-template-affiliates/">"Affiliate
+                        Theme"</a> - Modified by <a href="https://cdrrazan.com">@cdrrazan</a>
+                </p>
+                <div class="clearfix"></div>
+            </div>
+
+        </div>
+
+    </footer>
+    <!-- End Footer
+    ================================================== -->
+
+</div> <!-- /.site-content> -->
+
+<!-- JavaScript-->
+<!--================================================== -->
+
+<script src="https://kany.github.io/assets/js/jquery.min.js"></script>
+<script src="https://kany.github.io/assets/js/user.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"
+        integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
+        crossorigin="anonymous"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"
+        integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
+        crossorigin="anonymous"></script>
+
+<script src="https://kany.github.io/assets/js/ie10-viewport-bug-workaround.js"></script>
+<script type='text/javascript'
+        src='https://kany.github.io/assets/js/masonry.pkgd.min.js'></script>
+<script src="https://kany.github.io/assets/js/theme.js"></script>
+
+</body>
+</html>
